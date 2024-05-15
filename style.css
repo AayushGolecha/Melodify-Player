@@ -18,7 +18,8 @@ body {
 
 .right {
     width: 76vw;
-    height: 87.5vh;
+    height: 98vh;
+    overflow-y: scroll;
 }
 
 .logo {
@@ -239,10 +240,6 @@ body {
     margin-bottom: 4px;
 }
 
-.right {
-    overflow-y: scroll;
-}
-
 .header {
     display: flex;
     justify-content: space-between;
@@ -444,4 +441,9 @@ body {
     margin-top: 4px;
     color: rgb(167, 167, 167);
     font-size: 0.85rem;
+}
+
+.playbar {
+    position: fixed;
+    bottom: 0;
 }
