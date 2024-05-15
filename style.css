@@ -116,21 +116,31 @@ body {
     padding: 8px;
 }
 
-.scroll {
+.songList {
     height: 248px;
-    display: flex;
-    flex-direction: column;
+    /* display: flex;
+    flex-direction: column; */
     padding: 0px 8px 8px 8px;
-    gap: 10px;
-    overflow: hidden;
-}
-
-.scroll:hover {
+    /* gap: 10px; */
+    /* overflow: hidden; */
     overflow-y: scroll;
-    overflow: overlay;
 }
 
-.box {
+.songList ul{
+    padding: 0 35px;
+}
+.songList ul li{
+    list-style-type: decimal;
+    padding: 10px;
+    border: 1px solid white;
+    margin: 5px;
+}
+
+/* .songList:hover {
+    overflow-y: scroll;
+} */
+
+/* .box {
     display: flex;
     flex-direction: column;
     gap: 20px;
@@ -165,7 +175,7 @@ body {
 .btn:hover {
     padding: 9.5px 1.5px;
     margin: 0;
-}
+} */
 
 .footer {
     overflow: hidden;
@@ -445,5 +455,16 @@ body {
 
 .playbar {
     position: fixed;
-    bottom: 0;
+    bottom: 10px;
+    background-color: rgb(71, 70, 70);
+    width: 73.7%;
+    padding: 15px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.songbuttons{
+    display: flex;
+    justify-content: center;
+    gap: 15px;
 }
