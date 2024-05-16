@@ -71,3 +71,7 @@
     background: rgb(194, 194, 194);
   }
 
+  .pointer{
+    cursor: pointer;
+  }
+
