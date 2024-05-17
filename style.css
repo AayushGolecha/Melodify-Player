@@ -497,7 +497,7 @@ body {
 }
 
 .seekbar{
-    height: 4px;
+    height: 3px;
     width: 99.5%;
     background-color: white;
     border-radius: 10px;
@@ -520,7 +520,7 @@ body {
     grid-template-columns: repeat(3, 1fr);
 }
 
-.songinfo, .songtime{
+.songinfo, .timevol{
     color: white;
     padding: 0 15px;
 }
@@ -528,4 +528,28 @@ body {
 .songtime{
     display: flex;
     justify-content: flex-end;
+}
+
+.timevol {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 20px;
+}
+
+.volume {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    cursor: pointer;
+}
+
+.range{
+    display: flex;
+    align-items: center;
+}
+
+.range input{
+    height: 5px;
 }

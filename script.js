@@ -51,7 +51,7 @@ const playMusic=(track, pause=false)=>{
 }
 
 async function main(){
-    let songs= await getSongs()
+    songs= await getSongs()
     console.log(songs)
     playMusic(songs[0], true)
 
@@ -64,7 +64,7 @@ async function main(){
         </div>
         <div class="playnow">
             <span>Play Now</span>
-            <img src="img/play.svg" alt="">
+            <img id="p" src="img/play.svg" alt="">
         </div>
     </li>`
     }
@@ -90,11 +90,39 @@ async function main(){
         document.querySelector(".circle").style.left = (currentSong.currentTime*100)/currentSong.duration + "%"
     })
 
-    document.querySelector(".seekbar").addEventListener("click", (e)=>{
-        let percent = (e.offsetX / e.target.getBoundingClientRect().width) * 100
-        document.querySelector(".circle").style.left = percent + "%"
-        currentSong.currentTime = ((currentSong.duration) * percent) / 100;
-        console.log(currentSong.currentTime)
+    document.querySelector(".seekbar").addEventListener("click", e => {
+        let percent = (e.offsetX / e.target.getBoundingClientRect().width) * 100;
+        document.querySelector(".circle").style.left = percent + "%";
+        currentSong.currentTime = ((currentSong.duration) * percent) / 100
+    })
+
+     // Add an event listener to previous
+     prev.addEventListener("click", () => {
+        currentSong.pause()
+        console.log("Previous clicked")
+        let index = songs.indexOf(currentSong.src.split("/").slice(-1)[0])
+        if ((index - 1) >= 0) {
+            playMusic(songs[index - 1])
+        }
+    })
+
+    // Add an event listener to next
+    next.addEventListener("click", () => {
+        currentSong.pause()
+        console.log("Next clicked")
+        let index = songs.indexOf(currentSong.src.split("/").slice(-1)[0])
+        if ((index + 1) < songs.length) {
+            playMusic(songs[index + 1])
+        }
+    })
+
+    // Add an event to volume
+    document.querySelector(".range").getElementsByTagName("input")[0].addEventListener("change", (e) => {
+        console.log("Setting volume to", e.target.value, "/ 100")
+        currentSong.volume = parseInt(e.target.value) / 100
+        if (currentSong.volume >0){
+            document.querySelector(".volume>img").src = document.querySelector(".volume>img").src.replace("mute.svg", "volume.svg")
+        }
     })
 }
 main()
