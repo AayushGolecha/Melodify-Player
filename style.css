@@ -645,6 +645,6 @@ body {
 
 @media only screen and (max-width:400px) {
     .songList {
-        height: 370px;
+        height: 350px;
     }
 }
